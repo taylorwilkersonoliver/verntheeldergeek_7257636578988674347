@@ -9,7 +9,8 @@ this = \
     ]
 
 
-def run(var: List) -> str:
+def reveal(var: List) -> str:
+    """Reveal obfuscated text."""
     out = ""
     for i in var:
         var_number = int(i[::-1], 2)
@@ -17,5 +18,14 @@ def run(var: List) -> str:
     return out
 
 
+def obfuscate(var: str) -> List:
+    """Obfuscate text."""
+    out = []
+    for i in var:
+        out.append(str(bin(ord(i)))[::-1])
+    return out
+
+
 if __name__ == '__main__':
-    print(run(this))
+    print(reveal(this))
+    print(reveal(obfuscate('Anything')))
